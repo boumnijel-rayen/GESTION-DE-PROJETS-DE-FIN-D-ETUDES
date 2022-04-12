@@ -61,7 +61,6 @@ public class LoginController implements Initializable {
             rs = st.executeQuery("select * from etudiant");
             
             rs.next();
-            rs.next();
             id = rs.getInt("id_E");
             
         } catch (SQLException e) {
@@ -76,7 +75,10 @@ public class LoginController implements Initializable {
         esE.getID(id);
         Stage stage = new Stage();
         
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/espaceEtudiantStyle.css");
+        
+        stage.setScene(scene);
         stage.show();
         ((Stage)button.getScene().getWindow()).close();
     }

@@ -6,6 +6,12 @@
 package MyClass;
 
 import java.awt.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +29,11 @@ public class pfe {
     private int id_EN;
     private int id_R;
     private ArrayList<Integer> etudiants ;
+    
+    PreparedStatement pst;
+    Statement st;
+    ResultSet rs;
+    Connection con;
 
     public pfe(int num_PFE, String sujet, String entraprise_A, double note, String etat, String rapport_s, int id_EN, int id_R) {
         this.num_PFE = num_PFE;
@@ -54,6 +65,23 @@ public class pfe {
         this.etudiants = new ArrayList<Integer>();
     }
 
+    
+    public void deposer(){
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            
+            pst = con.prepareStatement("INSERT INTO `pfe` (`num_PFE`,`sujet`, `entreprise_A`,`etat`) VALUES (?,?,?,?)");
+            pst.setInt(1, num_PFE);
+            pst.setString(2, sujet);
+            pst.setString(3, entraprise_A);
+            pst.setString(4, etat);
+            pst.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
     public int getNum_PFE() {
@@ -118,6 +146,14 @@ public class pfe {
 
     public void setId_R(int id_R) {
         this.id_R = id_R;
+    }
+
+    public ArrayList<Integer> getEtudiants() {
+        return etudiants;
+    }
+
+    public void setEtudiants(ArrayList<Integer> etudiants) {
+        this.etudiants = etudiants;
     }
     
     

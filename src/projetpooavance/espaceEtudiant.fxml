@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="418.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetpooavance.espaceEtudiantController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetpooavance.espaceEtudiantController">
     <children>
-      <Label id="titre" layoutX="224.0" layoutY="29.0" text="Espace Etudiant">
+      <Label id="titre" layoutX="225.0" layoutY="44.0" text="Espace Etudiant">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button id="btn" layoutX="198.0" layoutY="138.0" mnemonicParsing="false" onAction="#switchToScean2" prefHeight="44.0" prefWidth="329.0" text="Déposer le sujet" textAlignment="CENTER">
+      <Button id="btn" fx:id="btn" layoutX="198.0" layoutY="157.0" mnemonicParsing="false" onAction="#openDeposer" prefHeight="44.0" prefWidth="329.0" text="Déposer le sujet" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
@@ -21,7 +21,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="btn" layoutX="198.0" layoutY="209.0" mnemonicParsing="false" onAction="#showID" prefHeight="44.0" prefWidth="329.0" text="Déposer le rapport" textAlignment="CENTER">
+      <Button id="btn" layoutX="198.0" layoutY="228.0" mnemonicParsing="false" onAction="#showID" prefHeight="44.0" prefWidth="329.0" text="Déposer le rapport" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
@@ -29,7 +29,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="btn" layoutX="199.0" layoutY="281.0" mnemonicParsing="false" onAction="#switchToScean2" prefHeight="44.0" prefWidth="329.0" text="Consulter l’état de PFE" textAlignment="CENTER">
+      <Button id="btn" layoutX="199.0" layoutY="300.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="329.0" text="Consulter l’état de PFE" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
@@ -37,7 +37,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="dec" layoutX="70.0" layoutY="352.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" text="Deconnecter" textAlignment="CENTER">
+      <Button id="dec" layoutX="67.0" layoutY="394.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" text="Deconnecter" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

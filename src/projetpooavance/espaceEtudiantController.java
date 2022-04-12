@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -31,15 +32,23 @@ public class espaceEtudiantController implements Initializable {
     
     private int id;
     
+    @FXML
+    Button btn;
+    
     
     @FXML
-    private void switchToScean2(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+    private void openDeposer(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("deposerSujet.fxml"));
         
-        stage.setScene(scene);
+        Parent root = loader.load();
+        
+        deposerSujetController ds = loader.getController();
+        ds.getID(id);
+        Stage stage = new Stage();
+        
+        stage.setScene(new Scene(root));
         stage.show();
+        ((Stage)btn.getScene().getWindow()).close();
     }
     
     @FXML

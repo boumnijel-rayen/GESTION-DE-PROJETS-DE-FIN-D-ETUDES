@@ -5,6 +5,13 @@
  */
 package MyClass;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author asus
@@ -18,8 +25,15 @@ public class etudiant {
     private String num_CIN;
     private String password;
     private int id_A;
+    private int num_PFE;
+    
+    
+    PreparedStatement pst;
+    Statement st;
+    ResultSet rs;
+    Connection con;
 
-    public etudiant(int id, String nom, String prenom, String email, String num_CIN, String password, int id_A) {
+    public etudiant(int id, String nom, String prenom, String email, String num_CIN, String password, int id_A,int num_PFE) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -27,6 +41,7 @@ public class etudiant {
         this.num_CIN = num_CIN;
         this.password = password;
         this.id_A = id_A;
+        this.num_PFE = num_PFE;
     }
 
     public etudiant(int id, String nom, String prenom, String email, String num_CIN, String password) {
@@ -44,6 +59,39 @@ public class etudiant {
         this.email = "";
         this.num_CIN = "";
         this.password = "";
+    }
+    
+    public void affecterPFE(){
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            st.executeUpdate("update etudiant set num_PFE="+num_PFE+" where id_E="+id);
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public Boolean isHavePfe(){
+        int num = 0;
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select num_PFE from etudiant where id_E="+id);
+            
+            rs.next();
+            num = rs.getInt("num_PFE");
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        if (num==0){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public int getId() {
@@ -100,6 +148,14 @@ public class etudiant {
 
     public void setId_A(int id_A) {
         this.id_A = id_A;
+    }
+
+    public int getNum_PFE() {
+        return num_PFE;
+    }
+
+    public void setNum_PFE(int num_PFE) {
+        this.num_PFE = num_PFE;
     }
     
     
