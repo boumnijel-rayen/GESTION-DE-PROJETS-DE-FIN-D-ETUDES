@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12 avr. 2022, 12:42:02
+    Author     : asus
+*/
+
+#btn{
+    -fx-background-color: #d4635b;
+    -fx-background-radius: 40;
+    -fx-text-fill: #ffffff;
+}
+
+#btn:hover{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #d4635b;
+    -fx-border-color: #d4635b;
+    -fx-border-radius: 40;
+}
+
+#dec{
+    -fx-background-color: red;
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+}
+
+#titre{
+    -fx-text-fill: #ffffff;
+}
+
+.root{
+    -fx-background-color: #454545;
+}
+

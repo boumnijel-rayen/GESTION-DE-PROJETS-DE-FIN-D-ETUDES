@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ProjetPooAvance.jnlp">
+  <information>
+    <title>ProjetPooAvance</title>
+    <vendor>asus</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ProjetPooAvance.jar" size="13451" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.27.jar" size="2475087" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="projetpooavance.ProjetPooAvance"  name="ProjetPooAvance" />
+  <update check="always"/>
+</jnlp>
