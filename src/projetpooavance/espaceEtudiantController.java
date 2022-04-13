@@ -46,7 +46,10 @@ public class espaceEtudiantController implements Initializable {
         ds.getID(id);
         Stage stage = new Stage();
         
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/deposerSujetStyle.css");
+        
+        stage.setScene(scene);
         stage.show();
         ((Stage)btn.getScene().getWindow()).close();
     }
@@ -54,6 +57,39 @@ public class espaceEtudiantController implements Initializable {
     @FXML
     private void showID(ActionEvent event) throws IOException{
         System.out.println(this.id);
+    }
+    
+    @FXML
+    private void openDeposerRapport(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("deposerRapport.fxml"));
+        
+        Parent root = loader.load();
+        
+        DeposerRapportController dr = loader.getController();
+        dr.getID(id);
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/deposerRapportStyle.css");
+        
+        stage.setScene(scene);
+        stage.show();
+        ((Stage)btn.getScene().getWindow()).close();
+    }
+    
+    @FXML
+    private void openConsulterEtat(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("consulterEtat.fxml"));
+        
+        Parent root = loader.load();
+        
+        ConsulterEtatController ce = loader.getController();
+        ce.getID(id);
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+        ((Stage)btn.getScene().getWindow()).close();
     }
     
     public void getID(int id){

@@ -64,6 +64,28 @@ public class pfe {
         this.rapport_s = "";
         this.etudiants = new ArrayList<Integer>();
     }
+    
+    public void ajoutRapport(){
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            st.executeUpdate("update pfe set rapport_s='"+rapport_s+"' where num_PFE="+num_PFE);
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            st.executeUpdate("update pfe set etat='en attente R' where num_PFE="+num_PFE);
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     
     public void deposer(){

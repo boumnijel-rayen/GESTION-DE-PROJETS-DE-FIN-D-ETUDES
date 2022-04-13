@@ -61,6 +61,63 @@ public class etudiant {
         this.password = "";
     }
     
+    public void ajouterRapport(String path){
+        int num;
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select num_PFE from etudiant where id_E="+id);
+            
+            rs.next();
+            num = rs.getInt("num_PFE");
+            pfe p = new pfe();
+            p.setNum_PFE(num);
+            p.setRapport_s(path);
+            p.ajoutRapport();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public Boolean isEtatEncadre(){
+        int num = 0;
+        String etat="";
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select num_PFE from etudiant where id_E="+id);
+            
+            rs.next();
+            num = rs.getInt("num_PFE");
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select etat from pfe where num_PFE="+num);
+            
+            rs.next();
+            etat = rs.getString("etat");
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        if(etat.equals("encadre")){
+                return true;
+            }else{
+                return false;
+            }
+    }
+    
     public void affecterPFE(){
         try {
             String ur = "jdbc:mysql://localhost:3306/projetjava";

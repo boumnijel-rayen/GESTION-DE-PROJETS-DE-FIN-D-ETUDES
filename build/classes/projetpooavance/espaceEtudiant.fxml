@@ -21,7 +21,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="btn" layoutX="198.0" layoutY="228.0" mnemonicParsing="false" onAction="#showID" prefHeight="44.0" prefWidth="329.0" text="Déposer le rapport" textAlignment="CENTER">
+      <Button id="btn" layoutX="198.0" layoutY="228.0" mnemonicParsing="false" onAction="#openDeposerRapport" prefHeight="44.0" prefWidth="329.0" text="Déposer le rapport" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
@@ -29,7 +29,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="btn" layoutX="199.0" layoutY="300.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="329.0" text="Consulter l’état de PFE" textAlignment="CENTER">
+      <Button id="btn" layoutX="199.0" layoutY="300.0" mnemonicParsing="false" onAction="#openConsulterEtat" prefHeight="44.0" prefWidth="329.0" text="Consulter l’état de PFE" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
