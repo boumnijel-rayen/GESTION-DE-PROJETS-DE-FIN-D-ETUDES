@@ -49,10 +49,42 @@ public class LoginController implements Initializable {
     @FXML
     Button button;
     
+    
+    @FXML
+    private void connexionEnseignant(ActionEvent event) throws IOException{
+        int id=0;
+        try {
+            String url="jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(url,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select * from encadrant");
+            
+            rs.next();
+            id = rs.getInt("id_EN");
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("espaceEnseignant.fxml"));
+        
+        Parent root = loader.load();
+        
+        EspaceEnseignantController esEn = loader.getController();
+        esEn.getID(id);
+        Stage stage = new Stage();
+        
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/espaceEtudiantStyle.css");
+        
+        stage.setScene(scene);
+        stage.show();
+        ((Stage)button.getScene().getWindow()).close();
+    }
 
     
     @FXML
-    private void connexion(ActionEvent event) throws IOException{
+    private void connexionEtudiant(ActionEvent event) throws IOException{
         int id=0;
         try {
             String url="jdbc:mysql://localhost:3306/projetjava";

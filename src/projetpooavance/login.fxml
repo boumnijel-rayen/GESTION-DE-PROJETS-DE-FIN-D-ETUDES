@@ -5,6 +5,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="401.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetpooavance.LoginController">
    <children>
-      <Button fx:id="button" layoutX="264.0" layoutY="188.0" mnemonicParsing="false" onAction="#connexion" text="connecter" />
+      <Button fx:id="button" layoutX="134.0" layoutY="201.0" mnemonicParsing="false" onAction="#connexionEtudiant" text="connecter etudiant" />
+      <Button layoutX="323.0" layoutY="201.0" mnemonicParsing="false" onAction="#connexionEnseignant" text="connecter ensegniant" />
    </children>
 </AnchorPane>

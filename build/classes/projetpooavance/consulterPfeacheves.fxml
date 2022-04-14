@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="projetpooavance.ConsulterPfeachevesController">
+   <children>
+      <Button layoutX="285.0" layoutY="225.0" mnemonicParsing="false" onAction="#showID" text="consulter pfe achevés" />
+      <Button fx:id="btn" layoutX="75.0" layoutY="408.0" mnemonicParsing="false" onAction="#back" text="retour" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="projetpooavance.AffecterNoteController">
+   <children>
+      <Button layoutX="308.0" layoutY="238.0" mnemonicParsing="false" onAction="#showID" text="affecter note" />
+      <Button fx:id="btn" layoutX="74.0" layoutY="414.0" mnemonicParsing="false" onAction="#back" text="retour" />
+   </children>
+</AnchorPane>
