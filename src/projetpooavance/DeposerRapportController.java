@@ -46,7 +46,7 @@ public class DeposerRapportController implements Initializable {
     private void diposerFile(ActionEvent event){
         fc.setTitle("choisir votre rapport");
         File file = fc.showOpenDialog(null);
-        path = file.getAbsolutePath();
+        path = file.getPath();
     }
     
     @FXML

@@ -105,26 +105,22 @@ public class ConsulterPfeEncadrantController implements Initializable {
                 t.setSujet(rs.getString("sujet"));
                 t.setEnreprise(rs.getString("entreprise_A"));
 
-                    int i=0;
-                    st1 = con.createStatement();
-                    rs1 = st1.executeQuery("select nom,prenom,email from etudiant where num_PFE="+rs.getInt("num_PFE"));
+                int i=0;
+                st1 = con.createStatement();
+                rs1 = st1.executeQuery("select nom,prenom,email from etudiant where num_PFE="+rs.getInt("num_PFE"));
 
-                    while(rs1.next()){
-                        if (i==0){
-                            t.setNom(rs1.getString("nom"));
-                            t.setPrenom(rs1.getString("prenom"));
-                            t.setEmail(rs1.getString("email"));
-                            i++;
-                        }else{
-                            t.setEmailB(rs1.getString("email"));
-                        }
+                while(rs1.next()){
+                    if (i==0){
+                        t.setNom(rs1.getString("nom"));
+                        t.setPrenom(rs1.getString("prenom"));
+                        t.setEmail(rs1.getString("email"));
+                        i++;
+                    }else{
+                        t.setEmailB(rs1.getString("email"));
                     }
-                    
-
+                }
                 lst.add(t);
             }
-            
-            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

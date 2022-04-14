@@ -5,9 +5,20 @@
  */
 package projetpooavance;
 
+import MyClass.tableViewStructure;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +26,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -30,12 +45,115 @@ public class ConsulterPfeachevesController implements Initializable {
     
     private int id;
     
+    PreparedStatement pst;
+    Statement st;
+    ResultSet rs;
+    Statement st1;
+    ResultSet rs1;
+    Connection con;
+    
     @FXML
     Button btn;
     
     @FXML
+    private TableView<tableViewStructure> table;
+
+    @FXML
+    private TableColumn<tableViewStructure, Integer> num;
+
+    @FXML
+    private TableColumn<tableViewStructure, String> sujet;
+
+    @FXML
+    private TableColumn<tableViewStructure, String> entreprise;
+
+    @FXML
+    private TableColumn<tableViewStructure, String> nom;
+
+    @FXML
+    private TableColumn<tableViewStructure, String> prenom;
+
+    @FXML
+    private TableColumn<tableViewStructure, String> email;
+
+    @FXML
+    private TableColumn<tableViewStructure, String> emailB;
+    
+    ObservableList<tableViewStructure> lst = FXCollections.observableArrayList();
+    ObservableList<Integer> lst1 = FXCollections.observableArrayList();
+    
+    @FXML
+    private ComboBox<Integer> num_PFE;
+    
+    @FXML
     private void showID(ActionEvent event){
         System.out.println(id);
+    }
+    
+    @FXML
+    private void consulterPfesAcheve(ActionEvent event){
+        num.setCellValueFactory(new PropertyValueFactory<tableViewStructure, Integer>("num"));
+        sujet.setCellValueFactory(new PropertyValueFactory<tableViewStructure, String>("sujet"));
+        entreprise.setCellValueFactory(new PropertyValueFactory<tableViewStructure, String>("enreprise"));
+        nom.setCellValueFactory(new PropertyValueFactory<tableViewStructure, String>("nom"));
+        prenom.setCellValueFactory(new PropertyValueFactory<tableViewStructure, String>("prenom"));
+        email.setCellValueFactory(new PropertyValueFactory<tableViewStructure, String>("email"));
+        emailB.setCellValueFactory(new PropertyValueFactory<tableViewStructure, String>("emailB"));
+        
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select * from pfe where id_R="+id);
+            
+            while(rs.next()){
+                tableViewStructure t = new tableViewStructure();
+                t.setNum(rs.getInt("num_PFE"));
+                t.setSujet(rs.getString("sujet"));
+                t.setEnreprise(rs.getString("entreprise_A"));
+                lst1.add(rs.getInt("num_PFE"));
+
+                int i=0;
+                st1 = con.createStatement();
+                rs1 = st1.executeQuery("select nom,prenom,email from etudiant where num_PFE="+rs.getInt("num_PFE"));
+
+                while(rs1.next()){
+                    if (i==0){
+                        t.setNom(rs1.getString("nom"));
+                        t.setPrenom(rs1.getString("prenom"));
+                        t.setEmail(rs1.getString("email"));
+                        i++;
+                    }else{
+                        t.setEmailB(rs1.getString("email"));
+                    }
+                }
+                lst.add(t);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        table.setItems(lst);
+        num_PFE.setItems(lst1);
+    }
+    
+    @FXML
+    private void imprimer(ActionEvent event){
+        int num = num_PFE.getSelectionModel().getSelectedItem();
+        
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select rapport_s from pfe where num_PFE="+num);
+            rs.next();
+            File file = new File(rs.getString("rapport_s"));
+            Desktop.getDesktop().open(file);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+
     }
     
     @FXML
