@@ -61,6 +61,91 @@ public class etudiant {
         this.password = "";
     }
     
+    public Double showNote(){
+        int num;
+        double note=0;
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select num_PFE from etudiant where id_E="+id);
+            
+            rs.next();
+            num = rs.getInt("num_PFE");
+            pfe p = new pfe();
+            p.setNum_PFE(num);
+            note = p.showNote();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return note;
+    }
+    
+    public String showInfosRapporteur(){
+        int num;
+        String infos="";
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select num_PFE from etudiant where id_E="+id);
+            
+            rs.next();
+            num = rs.getInt("num_PFE");
+            pfe p = new pfe();
+            p.setNum_PFE(num);
+            infos = p.showInfosRapporteur();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return infos;
+    }
+    
+    public String showInfosEncadrant(){
+        int num;
+        String infos="";
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select num_PFE from etudiant where id_E="+id);
+            
+            rs.next();
+            num = rs.getInt("num_PFE");
+            pfe p = new pfe();
+            p.setNum_PFE(num);
+            infos = p.showInfosEncadrant();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return infos;
+    }
+    
+    public String recupererEtat(){
+        int num;
+        String etat="";
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select num_PFE from etudiant where id_E="+id);
+            
+            rs.next();
+            num = rs.getInt("num_PFE");
+            pfe p = new pfe();
+            p.setNum_PFE(num);
+            etat = p.Etat();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return etat;
+    }
+    
     public void ajouterRapport(String path){
         int num;
         try {

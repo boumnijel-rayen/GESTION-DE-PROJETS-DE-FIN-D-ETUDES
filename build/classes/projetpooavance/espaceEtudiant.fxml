@@ -37,7 +37,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="dec" layoutX="67.0" layoutY="394.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" text="Deconnecter" textAlignment="CENTER">
+      <Button id="dec" layoutX="67.0" layoutY="394.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="36.0" prefWidth="103.0" text="Deconnecter" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

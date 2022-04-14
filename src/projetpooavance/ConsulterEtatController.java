@@ -5,6 +5,7 @@
  */
 package projetpooavance;
 
+import MyClass.etudiant;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +15,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
@@ -32,6 +35,14 @@ public class ConsulterEtatController implements Initializable {
     
     @FXML
     Button btn;
+    @FXML
+    Label etat;
+    @FXML
+    Label encadrant;
+    @FXML
+    Label rapporteur;
+    @FXML
+    Label note;
     
     @FXML
     private void showID(ActionEvent event){
@@ -58,6 +69,80 @@ public class ConsulterEtatController implements Initializable {
     
     public void getID(int id){
         this.id = id;
+    }
+    
+    @FXML
+    private void showNote(ActionEvent event){
+        String etat1 ;
+        etudiant e = new etudiant();
+        e.setId(id);
+        etat1 = e.recupererEtat();
+        if (etat1.equals("evalue")){
+            note.setText(e.showNote().toString());
+        }else{
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Test Connection");
+            alert1.setHeaderText("Results:");
+            alert1.setContentText("Vous ne pouvez pas faire ça dans cette etape !");
+            alert1.showAndWait();
+        }
+    }
+    
+    @FXML
+    private void showRapporteur(ActionEvent event){
+        String etat1 ;
+        etudiant e = new etudiant();
+        e.setId(id);
+        etat1 = e.recupererEtat();
+        if( (etat1.equals("en cours")) || (etat1.equals("evalue")) ){
+            rapporteur.setText(e.showInfosRapporteur());
+        }else{
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Test Connection");
+            alert1.setHeaderText("Results:");
+            alert1.setContentText("Vous ne pouvez pas faire ça dans cette etape !");
+            alert1.showAndWait();
+        }
+    }
+    
+    @FXML
+    private void showEncadrant(ActionEvent event){
+        String etat1 ;
+        etudiant e = new etudiant();
+        e.setId(id);
+        etat1 = e.recupererEtat();
+        if ( (etat1.equals("en attente R")) || (etat1.equals("encadre")) || (etat1.equals("en cours")) || (etat1.equals("evalue")) ){
+            encadrant.setText(e.showInfosEncadrant());       
+        }else{
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Test Connection");
+            alert1.setHeaderText("Results:");
+            alert1.setContentText("Vous ne pouvez pas faire ça dans cette etape !");
+            alert1.showAndWait();
+        }
+    }
+    
+    @FXML
+    private void showEtat(ActionEvent event){
+        etudiant e = new etudiant();
+        e.setId(id);
+        switch(e.recupererEtat()){
+            case "en attente E" : 
+                etat.setText("en attente d’encadrement");
+                break;
+            case "encadre" :
+                etat.setText("encadré");
+                break;
+            case "en attente R" :
+                etat.setText("en attente de rapporteur");
+                break;
+            case "en cours":
+                etat.setText("en cours d’évaluation");
+                break;
+            case "evalue":
+                etat.setText("évalué");
+                break;    
+        }
     }
     
     @Override

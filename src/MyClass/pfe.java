@@ -65,6 +65,82 @@ public class pfe {
         this.etudiants = new ArrayList<Integer>();
     }
     
+    public Double showNote(){
+        double note = 0;
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select note from pfe where num_PFE="+num_PFE);
+            
+            rs.next();
+            note = rs.getDouble("note");
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return note;
+    }
+    
+    public String showInfosRapporteur(){
+        String infos="";
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select id_R from pfe where num_PFE="+num_PFE);
+            
+            rs.next();
+            rapporteur r = new rapporteur();
+            r.setId(rs.getInt("id_R"));
+            infos = r.showInfosRpporteur();
+            
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return infos;
+    }
+    
+    public String showInfosEncadrant(){
+        String infos="";
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select id_EN from pfe where num_PFE="+num_PFE);
+            
+            rs.next();
+            encadrant en = new encadrant();
+            en.setId(rs.getInt("id_EN"));
+            infos=en.showInfosEncadrant();
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return infos;
+    }
+    
+    public String Etat(){
+        String etat="";
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select etat from pfe where num_PFE="+num_PFE);
+            
+            rs.next();
+            etat = rs.getString("etat");
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return etat;
+    }
+    
     public void ajoutRapport(){
         try {
             String ur = "jdbc:mysql://localhost:3306/projetjava";

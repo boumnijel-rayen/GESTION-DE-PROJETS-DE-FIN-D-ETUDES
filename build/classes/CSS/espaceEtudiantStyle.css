@@ -17,8 +17,6 @@ and open the template in the editor.
 #btn:hover{
     -fx-background-color: #ffffff;
     -fx-text-fill: #d4635b;
-    -fx-border-color: #d4635b;
-    -fx-border-radius: 40;
 }
 
 #dec{

@@ -159,7 +159,7 @@ public class deposerSujetController implements Initializable {
             String ur = "jdbc:mysql://localhost:3306/projetjava";
             con = DriverManager.getConnection(ur,"root","");
             st = con.createStatement();
-            rs = st.executeQuery("select * from etudiant where id_E !="+id);
+            rs = st.executeQuery("select * from etudiant where num_PFE is null and id_E !="+id);
             while (rs.next()) {                
                 lst.add(rs.getInt("id_E"));
             }

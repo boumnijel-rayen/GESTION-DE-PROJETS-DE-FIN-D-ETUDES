@@ -5,6 +5,12 @@
  */
 package MyClass;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -22,6 +28,11 @@ public class encadrant{
     private String cin;
     
     private ArrayList<Integer> PFEs ;
+    
+    PreparedStatement pst;
+    Statement st;
+    ResultSet rs;
+    Connection con;
 
     public encadrant(int id, String nom, String prenom, String email, int id_A, String password, String cin, ArrayList<Integer> PFEs) {
         this.id = id;
@@ -43,7 +54,22 @@ public class encadrant{
         this.PFEs = new ArrayList<Integer>();
     }
 
-    
+    public String showInfosEncadrant(){
+        String infos="";
+        try {
+            String ur = "jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(ur,"root","");
+            st = con.createStatement();
+            rs = st.executeQuery("select nom,prenom,email from encadrant where id_EN="+id);
+            
+            rs.next();
+            infos = "nom : "+rs.getString("nom")+"\nprenom : "+rs.getString("prenom")+"\nemail : "+rs.getString("email");
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return infos;
+    }
     
     
     public int getId() {

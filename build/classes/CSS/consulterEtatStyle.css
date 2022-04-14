@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 12 avr. 2022, 12:42:02
+    Created on : 14 avr. 2022, 10:48:56
     Author     : asus
 */
 
@@ -19,17 +19,10 @@ and open the template in the editor.
     -fx-text-fill: #d4635b;
 }
 
-#dec{
-    -fx-background-color: red;
-    -fx-background-radius: 0;
-    -fx-text-fill: #ffffff;
-}
-
-#titre{
+#txt{
     -fx-text-fill: #ffffff;
 }
 
 .root{
     -fx-background-color: #454545;
 }
-

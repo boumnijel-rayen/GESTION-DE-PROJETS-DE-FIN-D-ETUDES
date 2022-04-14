@@ -61,6 +61,8 @@ public class LoginController implements Initializable {
             rs = st.executeQuery("select * from etudiant");
             
             rs.next();
+            rs.next();
+            rs.next();
             id = rs.getInt("id_E");
             
         } catch (SQLException e) {

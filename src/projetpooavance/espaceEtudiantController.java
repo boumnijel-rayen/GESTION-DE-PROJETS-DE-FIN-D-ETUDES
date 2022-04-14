@@ -26,9 +26,6 @@ import javafx.stage.Stage;
  */
 public class espaceEtudiantController implements Initializable {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent parent;
     
     private int id;
     
@@ -54,9 +51,19 @@ public class espaceEtudiantController implements Initializable {
         ((Stage)btn.getScene().getWindow()).close();
     }
     
+    
     @FXML
-    private void showID(ActionEvent event) throws IOException{
-        System.out.println(this.id);
+    private void deconnecter(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        
+        Parent root = loader.load();
+        
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+        ((Stage)btn.getScene().getWindow()).close();
     }
     
     @FXML
@@ -86,6 +93,7 @@ public class espaceEtudiantController implements Initializable {
         ce.getID(id);
         Stage stage = new Stage();
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/consulterEtatStyle.css");
         
         stage.setScene(scene);
         stage.show();
