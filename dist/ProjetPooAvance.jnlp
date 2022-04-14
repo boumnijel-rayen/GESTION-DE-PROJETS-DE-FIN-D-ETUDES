@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProjetPooAvance.jar" size="37247" download="eager" />
+    <jar href="ProjetPooAvance.jar" size="40213" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.27.jar" size="2475087" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="projetpooavance.ProjetPooAvance"  name="ProjetPooAvance" />

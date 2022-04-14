@@ -84,6 +84,7 @@ public class EspaceEnseignantController implements Initializable {
         Stage stage = new Stage();
         
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/deposerRapportStyle.css");
         
         stage.setScene(scene);
         stage.show();

@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="projetpooavance.ConsulterPfeEncadrantController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetpooavance.ConsulterPfeEncadrantController">
    <children>
-      <Button fx:id="btn" layoutX="279.0" layoutY="206.0" mnemonicParsing="false" onAction="#showID" text="consulter pfe encadrant" />
-      <Button fx:id="btn" layoutX="62.0" layoutY="422.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="56.0" text="retour" />
+      <Button id="btn" fx:id="btn" layoutX="325.0" layoutY="95.0" mnemonicParsing="false" onAction="#showPfesList" prefHeight="31.0" prefWidth="154.0" text="Afficher">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button id="btn" fx:id="btn" layoutX="62.0" layoutY="422.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="56.0" text="retour">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TableView fx:id="table" layoutX="59.0" layoutY="150.0" prefHeight="229.0" prefWidth="585.0">
+        <columns>
+          <TableColumn fx:id="num_PFE" prefWidth="62.0" text="num PFE" />
+            <TableColumn fx:id="sujet" prefWidth="60.0" text="Sujet" />
+            <TableColumn fx:id="entreprise_A" prefWidth="120.0" text="Entreprise d'Accueil" />
+            <TableColumn fx:id="nom" prefWidth="63.0" text="Nom" />
+            <TableColumn fx:id="prenom" prefWidth="77.0" text="Prenom" />
+            <TableColumn fx:id="email" prefWidth="98.0" text="Email" />
+            <TableColumn fx:id="emailB" prefWidth="107.0" text="Email binome" />
+        </columns>
+      </TableView>
+      <Label id="txt" layoutX="62.0" layoutY="100.0" text="cliquer pour afficher les informations :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
