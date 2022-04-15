@@ -40,6 +40,20 @@ public class EspaceEnseignantController implements Initializable {
     }
     
     @FXML
+    private void deconnecter(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        
+        Parent root = loader.load();
+        
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+        ((Stage)btn.getScene().getWindow()).close();
+    }
+    
+    @FXML
     private void openAffecterNote(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("affecterNote.fxml"));
         
@@ -50,6 +64,7 @@ public class EspaceEnseignantController implements Initializable {
         Stage stage = new Stage();
         
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/deposerRapportStyle.css");
         
         stage.setScene(scene);
         stage.show();

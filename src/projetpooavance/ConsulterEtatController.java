@@ -80,8 +80,8 @@ public class ConsulterEtatController implements Initializable {
         if (etat1.equals("evalue")){
             note.setText(e.showNote().toString());
         }else{
-            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-            alert1.setTitle("Test Connection");
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("ERROR");
             alert1.setHeaderText("Results:");
             alert1.setContentText("Vous ne pouvez pas faire ça dans cette etape !");
             alert1.showAndWait();
@@ -97,8 +97,8 @@ public class ConsulterEtatController implements Initializable {
         if( (etat1.equals("en cours")) || (etat1.equals("evalue")) ){
             rapporteur.setText(e.showInfosRapporteur());
         }else{
-            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-            alert1.setTitle("Test Connection");
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("ERROR");
             alert1.setHeaderText("Results:");
             alert1.setContentText("Vous ne pouvez pas faire ça dans cette etape !");
             alert1.showAndWait();
@@ -114,8 +114,8 @@ public class ConsulterEtatController implements Initializable {
         if ( (etat1.equals("en attente R")) || (etat1.equals("encadre")) || (etat1.equals("en cours")) || (etat1.equals("evalue")) ){
             encadrant.setText(e.showInfosEncadrant());       
         }else{
-            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-            alert1.setTitle("Test Connection");
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("ERROR");
             alert1.setHeaderText("Results:");
             alert1.setContentText("Vous ne pouvez pas faire ça dans cette etape !");
             alert1.showAndWait();

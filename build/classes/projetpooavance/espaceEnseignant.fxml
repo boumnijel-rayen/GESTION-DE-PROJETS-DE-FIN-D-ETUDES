@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="projetpooavance.EspaceEnseignantController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetpooavance.EspaceEnseignantController">
    <children>
-      <Button id="dec" fx:id="btn" layoutX="71.0" layoutY="391.0" mnemonicParsing="false" onAction="#showID" prefHeight="34.0" prefWidth="96.0" text="Deconnexion">
+      <Button id="dec" fx:id="btn" layoutX="71.0" layoutY="391.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="34.0" prefWidth="96.0" text="Deconnexion">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

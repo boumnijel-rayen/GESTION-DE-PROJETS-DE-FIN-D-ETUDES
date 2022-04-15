@@ -65,6 +65,17 @@ public class pfe {
         this.etudiants = new ArrayList<Integer>();
     }
     
+    public void affecterNote(){
+        try {
+            String url="jdbc:mysql://localhost:3306/projetjava";
+            con = DriverManager.getConnection(url,"root","");
+            st = con.createStatement();
+            st.executeUpdate("update pfe set etat='evalue',note="+note+" where num_PFE="+num_PFE);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     public Double showNote(){
         double note = 0;
         try {

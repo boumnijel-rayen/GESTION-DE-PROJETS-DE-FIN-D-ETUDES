@@ -114,14 +114,14 @@ public class deposerSujetController implements Initializable {
                 e.affecterPFE();
             }
                 Alert alert1 = new Alert(AlertType.INFORMATION);
-		alert1.setTitle("Test Connection");
+		alert1.setTitle("success");
 		alert1.setHeaderText("Results:");
 		alert1.setContentText("sujet deposé avec success");
 
 		alert1.showAndWait();
         }else{
-                Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Test Connection");
+                Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("ERROR");
 		alert.setHeaderText("Results:");
 		alert.setContentText("étudiant avoir déja pfe !");
 

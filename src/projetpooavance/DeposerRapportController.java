@@ -59,27 +59,27 @@ public class DeposerRapportController implements Initializable {
                     e.ajouterRapport(path);
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Test Connection");
+                    alert.setTitle("success");
                     alert.setHeaderText("Results:");
                     alert.setContentText("rapport deposé avec success !");
                     alert.showAndWait();
                 }else{
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Test Connection");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("ERROR");
                     alert.setHeaderText("Results:");
                     alert.setContentText("vous ne pouvez pas faire ça dans cette etape !");
                     alert.showAndWait();
                 }
             }else{
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Test Connection");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("ERROR");
                 alert.setHeaderText("Results:");
                 alert.setContentText("étudiant n'a pas encore un pfe");
                 alert.showAndWait();
             }
         }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Test Connection");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
             alert.setHeaderText("Results:");
             alert.setContentText("choisissez votre rapport");
             alert.showAndWait();
